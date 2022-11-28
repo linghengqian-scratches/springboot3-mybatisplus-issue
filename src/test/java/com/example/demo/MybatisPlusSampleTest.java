@@ -2,7 +2,7 @@ package com.example.demo;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.test.autoconfigure.MybatisPlusTest;
-import com.example.demo.mapper.IPlatformTrademarkConfigDao;
+import com.example.demo.mapper.ITrademarkConfigDao;
 import com.example.demo.model.TrademarkConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MybatisPlusSampleTest {
 
     @Autowired
-    private IPlatformTrademarkConfigDao trademarkConfigDao;
+    private ITrademarkConfigDao trademarkConfigDao;
 
     @Test
     void testInsert() {
