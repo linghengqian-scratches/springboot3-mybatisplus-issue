@@ -1,26 +1,23 @@
 package com.example.demo;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.test.autoconfigure.MybatisPlusTest;
-import com.example.demo.mapper.ITrademarkConfigDao;
-import com.example.demo.model.TrademarkConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@MybatisPlusTest
+@SpringBootTest
 class MybatisPlusSampleTest {
-
     @Autowired
-    private ITrademarkConfigDao trademarkConfigDao;
+    ITrademarkConfigDao trademarkConfigDao;
 
     @Test
     void testInsert() {
-        TrademarkConfig trademarkConfig = new TrademarkConfig();
-        trademarkConfig.setDomain("");
-        trademarkConfig = trademarkConfigDao.selectOne(new QueryWrapper<>(trademarkConfig));
-
-        assertThat(trademarkConfig.getId()).isNotNull();
+        TrademarkConfig trademarkConfig = new TrademarkConfig("test");
+        List<TrademarkConfig> trademarkConfigs = trademarkConfigDao.selectList(new QueryWrapper<>(trademarkConfig));
+        assertThat(trademarkConfigs.size()).isEqualTo(11);
     }
 }
